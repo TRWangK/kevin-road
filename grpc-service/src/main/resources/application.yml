@@ -1,0 +1,8 @@
+server:
+  port: 8011
+grpc:
+  server:
+    port: 6000
+spring:
+  application:
+    name: grpc-service

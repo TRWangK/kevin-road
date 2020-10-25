@@ -1,0 +1,13 @@
+info:
+  version: 1.0
+  name: grpc-client
+
+server:
+  port: 8012
+
+grpc:
+  client:
+    grpc-service:
+      enableKeepAlive: true
+      keepAliveWithoutCalls: true
+      negotiationType: plaintext
