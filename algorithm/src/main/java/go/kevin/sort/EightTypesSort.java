@@ -13,8 +13,9 @@ public class EightTypesSort {
 
 		//chooseSort( Arrays.copyOf(example, example.length) );
 		//bubbleSort( Arrays.copyOf(example, example.length) );
+		insertionSort(example);
 		//quickSort( Arrays.copyOf(example, example.length) );
-		mergeSort( Arrays.copyOf(example, example.length) );
+		//mergeSort( Arrays.copyOf(example, example.length) );
 
 	}
 
@@ -82,8 +83,30 @@ public class EightTypesSort {
 
 	/**
 	 * 3.插入排序
+	 *  将数据分为已排序和未排序两个区间, 初始已排序区间只有数组第一个元素.
+	 *  每次外循环取未排序区间第一个数, 在内循环中与已排序区间数倒序遍历比较,
+	 *  找到合适的插入位置插入, 循环时已排序区间比当前数大的数都后移一位.
 	 */
-	public static int[] insertSort(int[] nums){
+	public static int[] insertionSort(int[] nums){
+
+		for(int x = 1; x < nums.length; x++){
+
+			int tempNum = nums[x];
+
+			for (int y = x - 1; y >= 0; y--){
+				// 在未排序区间中寻找插入位置, 比当前数小的数都后移一位
+				if(tempNum < nums[y]){
+					nums[y+1] = nums[y];
+
+				// 找到了插入位置, 插入并出循环
+				}else {
+					nums[y+1] = tempNum;
+					break;
+				}
+			}
+		}
+
+		System.out.println("insertion: " + Arrays.toString(nums));
 		return nums;
 	}
 
