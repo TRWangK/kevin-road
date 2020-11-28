@@ -13,9 +13,9 @@ public class EightTypesSort {
 
 		//chooseSort( Arrays.copyOf(example, example.length) );
 		//bubbleSort( Arrays.copyOf(example, example.length) );
-		insertionSort(example);
+		//insertionSort( Arrays.copyOf(example, example.length));
 		//quickSort( Arrays.copyOf(example, example.length) );
-		//mergeSort( Arrays.copyOf(example, example.length) );
+		mergeSort( Arrays.copyOf(example, example.length) );
 
 	}
 
@@ -150,25 +150,46 @@ public class EightTypesSort {
 
 	}
 
+	/**
+	 * 5.归并排序
+	 *  分治思想, 将一个数组拆分为两个, 直到无法再分
+	 *  然后一一返回, 进行合并和排序.
+	 *  递归.
+	 * @param nums
+	 * @return
+	 */
 	public static int[] mergeSort(int[] nums){
+		nums = splitAndMerge(nums);
+		System.out.println( Arrays.toString(nums) );
+		return nums;
+	}
 
-		if(nums.length <= 1){
+	private static int[] splitAndMerge(int[] nums){
+		if (nums.length <= 1){
 			return nums;
 		}
 
-		int[] numsCopy = Arrays.copyOf(nums, nums.length);
-		int middle = numsCopy.length / 2;
+		int[] leftArray = splitAndMerge( Arrays.copyOfRange(nums, 0, nums.length / 2 ) ) ;
+		int[] rightArray = splitAndMerge( Arrays.copyOfRange(nums, nums.length / 2, nums.length) );
 
-		int[] left = Arrays.copyOfRange(numsCopy, 0, middle);
-		int[] right = Arrays.copyOfRange(numsCopy, middle, numsCopy.length);
-
-		return merge(left, right);
+		return merge( leftArray, rightArray );
 	}
 
 	private static int[] merge(int[] left, int[] right){
 
 		int[] result = new int[left.length + right.length];
+		int x = 0, y = 0;
 
+		for(int i = 0; i < result.length; i++){
+
+			if (y >= right.length || ( x < left.length && left[x] <= right[y] )){
+				result[i] = left[x];
+				x++;
+			}else {
+				result[i] = right[y];
+				y++;
+			}
+		}
 
 		return result;
 	}
