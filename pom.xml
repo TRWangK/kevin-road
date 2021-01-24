@@ -17,6 +17,7 @@
         <module>nio-netty</module>
         <module>algorithm</module>
         <module>core-java</module>
+        <module>test</module>
     </modules>
 
     <!-- 父项目dependencies: 所有子项目都会引入, 无论是否在子项目列出  -->
@@ -26,6 +27,14 @@
             <artifactId>lombok</artifactId>
             <version>1.16.10</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.11</version>
+        </dependency>
+
 
     </dependencies>
 
