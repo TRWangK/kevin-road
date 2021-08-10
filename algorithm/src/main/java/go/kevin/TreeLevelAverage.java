@@ -30,7 +30,7 @@ public class TreeLevelAverage {
 	}
 
 	/**
-	 * 思路: 广优先搜索
+	 * 思路: 广度优先搜索
 	 * 创建一个队列, 从root结点开始, 保存下一层的结点, 每次只遍历当前层数大小的次数
 	 * @param root
 	 * @return
