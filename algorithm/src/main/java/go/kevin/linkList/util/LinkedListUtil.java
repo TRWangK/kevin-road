@@ -1,8 +1,8 @@
 package go.kevin.linkList.util;
 
-import com.google.common.collect.Lists;
 import go.kevin.entity.ListNode;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -11,7 +11,7 @@ import java.util.List;
  **/
 public class LinkedListUtil {
 
-	public static ListNode getLinkListNode (List<Integer> valueList){
+	public static ListNode getLinkListNode (Integer... valueList){
 
 		ListNode sentinel = new ListNode(-1);
 		ListNode now = sentinel;
@@ -26,15 +26,17 @@ public class LinkedListUtil {
 	}
 
 	public static void printAllNode (ListNode node){
+		List<Integer> result = new ArrayList<>();
 		while (node != null){
-			System.out.println(node.val);
+			result.add(node.val);
 			node = node.next;
 		}
+		System.out.println(result);
 	}
 
 
 	public static void main(String[] args) {
-		ListNode listNode = getLinkListNode(Lists.newArrayList(1,2,3,4,5));
+		ListNode listNode = getLinkListNode(1,2,3);
 		printAllNode(listNode);
 	}
 }
