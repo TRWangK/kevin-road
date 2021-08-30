@@ -1,15 +1,20 @@
 package go.kevin.linkList;
 
 import go.kevin.entity.ListNode;
+import go.kevin.linkList.util.LinkedListUtil;
 
 /**
  * leetcode 19. 删除链表的倒数第 N 个结点
+ * 剑指 Offer 22. 链表中倒数第k个节点
  * @author Tianrui Wang
  * @date 2021-05-09 17:24
  **/
 public class RemoveLastNthNode {
 
 	public static void main(String[] args) {
+
+		ListNode head = LinkedListUtil.getLinkListNode(1,2,3,4,5,6);
+		LinkedListUtil.printAllNode(getKthFromEnd(head, 5));
 
 	}
 
@@ -68,6 +73,32 @@ public class RemoveLastNthNode {
 
 		slowNode.next = slowNode.next.next;
 		return head;
+	}
+
+	/**
+	 * 剑指 Offer 22. 链表中倒数第k个节点
+	 * @param head
+	 * @param k
+	 * @return
+	 */
+	public static ListNode getKthFromEnd(ListNode head, int k) {
+		if (head == null){
+			return head;
+		}
+
+		ListNode fast = head;
+		ListNode slow = head;
+
+		for (int i = 1; i < k; i++){
+			fast = fast.next;
+		}
+
+		while (fast.next != null){
+			fast = fast.next;
+			slow = slow.next;
+		}
+
+		return slow;
 	}
 
 }
