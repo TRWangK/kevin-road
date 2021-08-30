@@ -13,7 +13,7 @@ public class RemoveLinkListElement {
 
 	public static void main(String[] args) {
 
-		ListNode head = LinkedListUtil.getLinkListNode(Lists.newArrayList(7,7,7,7));
+		ListNode head = LinkedListUtil.getLinkListNode(7,7,7,7);
 		LinkedListUtil.printAllNode(removeElements(head, 7));
 
 	}

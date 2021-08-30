@@ -13,7 +13,7 @@ public class RemoveLinkListNode {
 
 	public static void main(String[] args) {
 
-		ListNode head = LinkedListUtil.getLinkListNode(Lists.newArrayList(1, 2, 3, 4));
+		ListNode head = LinkedListUtil.getLinkListNode(1, 2, 3, 4);
 		deleteNode(head.next.next);
 		LinkedListUtil.printAllNode(head);
 
