@@ -3,6 +3,9 @@ package go.kevin.stream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.Semaphore;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.locks.ReentrantLock;
 import java.util.stream.Collectors;
 
 /**
@@ -23,5 +26,17 @@ public class TestStream {
 				.collect(Collectors.toList());
 
 		System.out.println(list);
+
+		/*ReentrantLock lock = new ReentrantLock();
+		lock.lock();
+		lock.tryLock();
+		lock.unlock();
+
+		AtomicInteger num = new AtomicInteger();
+		num.compareAndSet(1, 2);
+
+		Semaphore semaphore = new Semaphore(3);
+		semaphore.acquire();*/
+
 	}
 }
