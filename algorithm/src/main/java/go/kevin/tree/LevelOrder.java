@@ -1,6 +1,7 @@
 package go.kevin.tree;
 
 import go.kevin.entity.TreeNode;
+import go.kevin.util.TreeUtil;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -15,12 +16,8 @@ import java.util.Queue;
 public class LevelOrder {
 
 	public static void main(String[] args) {
-		TreeNode root = new TreeNode(3);
-		root.left = new TreeNode(9);
-		root.right = new TreeNode(20);
-		root.right.left = new TreeNode(15);
-		root.right.right = new TreeNode(7);
 
+		TreeNode root = TreeUtil.buildTree(3,9,20,null,null,15,7);
 		System.out.println(levelOrder(root));
 	}
 

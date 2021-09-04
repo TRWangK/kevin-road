@@ -1,6 +1,7 @@
 package go.kevin.tree;
 
 import go.kevin.entity.TreeNode;
+import go.kevin.util.TreeUtil;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -15,11 +16,7 @@ public class PreOrderTravel {
 
 	public static void main(String[] args) {
 
-		TreeNode root = new TreeNode(2);
-		root.left = new TreeNode(1);
-		root.right = new TreeNode(3);
-		root.left.left = new TreeNode(99);
-
+		TreeNode root = TreeUtil.buildTree(3,9,4,null,null,5,7);
 		System.out.println(preorderTraversal(root));
 
 	}
