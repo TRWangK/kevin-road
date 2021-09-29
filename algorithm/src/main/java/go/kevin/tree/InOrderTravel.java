@@ -54,18 +54,19 @@ public class InOrderTravel {
 
 		Stack<TreeNode> stack = new Stack<>();
 
-		while (root != null || !stack.isEmpty()){
+		while ( !stack.isEmpty() || root != null ){
 
+			//依次把左边界压入栈
 			while (root != null){
 				stack.push(root);
 				root = root.left;
 			}
 
+			// 没有左节点了, pop上一个节点, 并查找他的右节点
 			root = stack.pop();
 			result.add(root.val);
 			root = root.right;
 		}
-
 
 		return result;
 	}

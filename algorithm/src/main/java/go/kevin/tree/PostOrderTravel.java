@@ -78,4 +78,39 @@ public class PostOrderTravel {
 
 		return result;
 	}
+
+	/**
+	 * 借助前序'遍历 和 额外的栈 实现后序遍历
+	 * @param root
+	 * @return
+	 */
+	public static List<Integer> postorderTraversal3(TreeNode root) {
+		List<Integer> result = new ArrayList<>();
+		if (root == null){
+			return result;
+		}
+
+		Stack<TreeNode> stack = new Stack<>();
+		Stack<TreeNode> resultStack = new Stack<>();
+		stack.push(root);
+
+		while (!stack.isEmpty()){
+
+			TreeNode node = stack.pop();
+			resultStack.push(node);
+			if (node.left != null){
+				stack.push(node.left);
+			}
+			if (node.right != null){
+				stack.push(node.right);
+			}
+
+		}
+
+		while (!resultStack.isEmpty()){
+			result.add(resultStack.pop().val);
+		}
+
+		return result;
+	}
 }
