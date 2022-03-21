@@ -1,4 +1,4 @@
-package go.kevin.test;
+package go.kevin.interview;
 
 import org.apache.commons.collections.CollectionUtils;
 
